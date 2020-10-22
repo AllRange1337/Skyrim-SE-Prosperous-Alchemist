@@ -237,7 +237,7 @@ namespace alchemist {
 					if (item->enchantable.enchantment) {
 						for (int i = 0; i < item->enchantable.enchantment->effectItemList.count; ++i) {
 							MagicItem::EffectItem *effect = item->enchantable.enchantment->effectItemList[i];
-							if (effect::getName(effect) == "Fortify Alchemy") {
+							if (effect::getName(effect) == "Alchemie verstärken") {
 								player.fortifyAlchemyLevel += effect::getMagnitude(effect);
 							}
 						}
@@ -251,7 +251,7 @@ namespace alchemist {
 					if (item->enchantable.enchantment) {
 						for (int i = 0; i < item->enchantable.enchantment->effectItemList.count; ++i) {
 							MagicItem::EffectItem *effect = item->enchantable.enchantment->effectItemList[i];
-							if (effect::getName(effect) == "Fortify Alchemy") {
+							if (effect::getName(effect) == "Alchemie verstärken") {
 								player.fortifyAlchemyLevel += effect::getMagnitude(effect);
 							}
 						}
@@ -303,12 +303,12 @@ namespace alchemist {
 			string alchemist_result = "";
 			if (args && args->numArgs && args->numArgs > 0) {
 				string craft_description = *(args->args[0].data.managedString);
-				if (craft_description.find("Alchemy") != string::npos && g_thePlayer) {
+				if (craft_description.find("Alchemie") != string::npos && g_thePlayer) {
 					//time_t start = time(NULL);
 					initAlchemist();
 					//stressTest();
 					if (ingredients != lastIngredientList || player.state != player.lastState) {
-						costliestPotion = Potion(0, "No potion recipes are currently available.");
+						costliestPotion = Potion(0, "Derzeit sind keine Zaubertrankrezepte verfügbar.");
 						lastIngredientList = set<Ingredient>(ingredients);
 						player.lastState = player.state;
 						makePotions();
